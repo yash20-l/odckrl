@@ -1,0 +1,240 @@
+import Head from 'next/head'
+import Image from "next/image"
+import { HiOutlineMenuAlt3 } from "react-icons/hi"
+import { useRef } from 'react/cjs/react.development'
+import { Carousel , Form, Button} from "react-bootstrap"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+export default function Home() {
+
+  const Menuref = useRef(null);
+  const Hiddenref = useRef(null);
+
+  const handleOnClick = () => {
+    Hiddenref.current.classList.toggle('hidden')
+  }
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
+
+  return (
+    <>
+      <div className="head">
+        <Head>
+          <title>On Dot Courier Kurali</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
+        </Head>
+      </div>
+
+      {/*  navbar goes here */}
+      <div className="navbar w-full bg-purple-400 px-2">
+        <div className="contents-wrapper relative w-full h-full md:flex-row md:flex items-center">
+          <div className="brand">
+            <Image src="/skyking.png" height={60} width={100}></Image>
+          </div>
+
+          <HiOutlineMenuAlt3 style={{ color: 'white', height: '40px', width: "40px", cursor: 'pointer' }} className="absolute top-4 right-0 md:hidden" ref={Menuref} onClick={handleOnClick} />
+
+          <div className="MenuWrapper hidden transition duration-200 ease-in-out md:flex-row md:flex h-full w-full items-center justify-evenly" ref={Hiddenref}>
+
+            <div className="menu  md:block">
+              <div className="items flex flex-col md:flex-row">
+                <a href="" className='p-2 text-white text-base font-bold ease-in duration-100 hover:text-purple-800'><span>Home</span></a>
+                <a href="" className='p-2 text-white text-base font-bold ease-in duration-100 hover:text-purple-800'  ><span>Services</span></a>
+                <a href="" className='p-2 text-white text-base font-bold ease-in duration-100 hover:text-purple-800' ><span>Pickup</span></a>
+                <a href="" className='p-2 text-white text-base font-bold ease-in duration-100 hover:text-purple-800' ><span>Contact Us</span></a>
+              </div>
+            </div>
+
+            <div className="extraOptions  md:block">
+              <div className="items">
+                <a href="">option1</a>
+                <a href="">option2</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div className="heroSection flex px-4 flex-col md:flex-row">
+        <div className="main">
+          <div className="heading">
+            <h1 className='leading-tight text-5xl text-gray-800 font-bold mt-20 mb-10 md:text-6xl md:mt-40'>The Best Courier Shop In Tricity !</h1>
+          </div>
+          <div className="buttons">
+            <button className='p-2 border-red-500 border-2 bg-red-500 text-lg mx-2  rounded-xl text-white font-normal ease-in duration-100 hover:bg-red-600'>Request Pickup</button>
+            <button className='p-2 bg-white mx-2 border-2 font-normal rounded-xl border-red-500 text-lg ease-in duration-100 text-black hover:text-red-600'>Get Directions</button>
+          </div>
+        </div>
+        <div className="image">
+          <Image src={'/globe.png'} height={800} width={800}></Image>
+        </div>
+      </div>
+
+      {/* services section start */}
+
+      <div className="servicesSection bg-gray-100 py-8">
+        <div className="heading flex flex-row text-center items-center justify-center">
+          <h1 className='text-center text-5xl text-black font-bold px-2'>Our</h1><h1 className='px-2 text-5xl text-purple-500 font-bold text-purple-500'>Services</h1>
+        </div>
+        <div className="para text-center py-2">
+          <p className='font-medium text-xl text-gray-800'>What Can We Do For You...</p>
+        </div>
+        <div className="servicesContainer flex flex-col items-center justify-evenly md:flex-row">
+          <div className="box p-2 m-2 rounded-xl bg-red-500 text-center my-2 relative">
+            <div className="centerBox flex flex-row items-center justify-center"></div>
+            {/* <div className="icon rounded-full bg-white absolute top-0 right-0 p-6 right-40 border-4 border-purple-600" style={{top:'-50px'}}>
+              <ImTruck className='h-10 w-10' color='purple'/>
+              </div> */}
+            <div className="boxHeading  text-white font-bold mb-2 mt-4">
+              <h1 className='text-2xl'>Domestic Cargo</h1>
+            </div>
+            <div className="description my-2 text-lg text-white font-normal">
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores, a? Esse ratione ipsum vitae, alias quisquam dicta nesciunt culpa, dolore et accusamus eius rerum minima.</p>
+            </div>
+          </div>
+          <div className="box p-2 m-2 rounded-xl bg-blue-500 text-center my-2 relative">
+            {/* <div className="icon rounded-full bg-white absolute top-0 right-0 p-6 right-40 border-4 border-purple-600" style={{top:'-50px'}}>
+              <ImTruck className='h-10 w-10' color='purple'/>
+              </div> */}
+            <div className="boxHeading text-white font-bold mb-2 mt-4">
+              <h1 className='text-2xl'>International Cargo</h1>
+            </div>
+            <div className="description my-2 text-lg text-white font-normal">
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores, a? Esse ratione ipsum vitae, alias quisquam dicta nesciunt culpa, dolore et accusamus eius rerum minima.</p>
+            </div>
+          </div>
+          <div className="box p-2 m-2 rounded-xl bg-purple-500 text-center my-2 relative">
+            {/* <div className="icon rounded-full bg-white absolute top-0 right-0 p-6 right-40 border-4 border-purple-600" style={{top:'-50px'}}>
+              <ImTruck className='h-10 w-10' color='purple'/>
+              </div> */}
+            <div className="boxHeading text-white font-bold mb-2 mt-4">
+              <h1 className='text-2xl'>Pan Card</h1>
+            </div>
+            <div className="description my-2 text-lg text-white font-normal">
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores, a? Esse ratione ipsum vitae, alias quisquam dicta nesciunt culpa, dolore et accusamus eius rerum minima.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Testomonals Section */}
+
+      <div className="testomonalsMain py-8  bg-gray-800">
+        <div className="TestimonalsHeading text-center font-bold text-5xl text-white">
+          <h1>Testimonials</h1>
+        </div>
+        <div className="para text-center font-normal text-white text-lg">
+          <p>What others think about us</p>
+        </div>
+        <Carousel indicators={false}>
+          <Carousel.Item className='h-50'>
+            <div className="testimonalsWrapper flex flex-col items-center justify-evenly px-10 md:px-28 md:flex-row">
+              <div className="avatar w-full flex flex-col items-center justify-center">
+                <div className="image">
+                  <Image src={'/3.jpg'} height={200} width={200} className={'rounded-full'}></Image>
+                </div>
+                <div className="PersonName text-center py-2">
+                  <h1 className='text-4xl font-bold text-white'>Bhagwant Singh Maan</h1>
+                </div>
+              </div>
+              <div className='desc w-full'>
+                <div className="para text-left">
+                  <p className="text-white font-medium text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta doloremque labore voluptatibus? Quos error, maiores magnam non tempora deserunt dolores?aliquid.</p>
+                </div>
+              </div>
+            </div>
+          </Carousel.Item>
+          <Carousel.Item className='h-50'>
+            <div className="testimonalsWrapper flex flex-col items-center justify-evenly px-10 md:px-28 md:flex-row">
+              <div className="avatar w-full flex flex-col items-center justify-center">
+                <div className="image">
+                  <Image src={'/2.jpg'} height={200} width={200} className={'rounded-full'}></Image>
+                </div>
+                <div className="PersonName text-center py-2">
+                  <h1 className='text-4xl font-bold text-white'>Narendra Modi</h1>
+                </div>
+              </div>
+              <div className='desc w-full'>
+                <div className="para text-left">
+                  <p className="text-white font-medium text-xl">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus similique soluta excepturi odio officia praesentium dolor, illum quod, dolore eos voluptas? Enim non suscipit quo.</p>
+                </div>
+              </div>
+            </div>
+          </Carousel.Item>
+          <Carousel.Item className='h-50'>
+            <div className="testimonalsWrapper flex flex-col items-center justify-evenly px-10 md:px-28 md:flex-row">
+              <div className="avatar w-full flex flex-col items-center justify-center">
+                <div className="image">
+                  <Image src={'/1.jpg'} height={200} width={200} className={'rounded-full'}></Image>
+                </div>
+                <div className="PersonName text-center py-2">
+                  <h1 className='text-4xl font-bold text-white'>D. Trump</h1>
+                </div>
+              </div>
+              <div className='desc w-full'>
+                <div className="para text-left">
+                  <p className="text-white font-medium text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quaerat libero provident aspernatur, voluptatibus totam iusto, esse eos in excepturi dolores ex deserunt assumenda nemo.</p>
+                </div>
+              </div>
+            </div>
+          </Carousel.Item>
+        </Carousel>
+      </div>
+
+      <div className="ReachUs w-full px-2 my-2">
+        <div className="reachTitle py-2 flex flex-row items-center justify-center">
+          <h1 className='text-3xl font-normal text-gray-800 text-center'>How To</h1><h1 className='text-3xl text-purple-500 px-2 font-normal'>Reach</h1> <h1 className='text-3xl text-gray-800 font-normal'>Us ?</h1>
+        </div>
+        <div className="para">
+          <p className='text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ratione vitae harum, fugit deserunt reiciendis ipsa consequuntur id veniam, alias minus soluta nam unde eos cupiditate! Veniam soluta eos eaque?</p>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3425.8385683299425!2d76.57688002806603!3d30.83518921128908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ffbd8a026d03d%3A0xe913902c62acf549!2sOn%20Dot%20Courier%20service!5e0!3m2!1sen!2sin!4v1647755049537!5m2!1sen!2sin" className='h-full w-full' style={{ border: 0 }}  loading="lazy"></iframe>
+      </div>
+
+      <div className="requestPickup py-4 bg-gray-100">
+        <div className="requestheading flex flex-row items-center justify-center my-2">
+          <h1 className='text-center text-3xl font-normal text-red-500'>Request</h1><h1 className='px-2 text-3xl font-normal text-gray-800'>Pickup</h1>
+        </div>
+        <div className="requestForm px-3">
+          <Form>
+            <Form.Group className="my-3" controlId="Email">
+              <Form.Control type="text" placeholder="Enter your name" style={{border:'none', borderBottom:'2px solid purple', outline:'none', boxShadow:'none', borderRadius:'0px', backgroundColor:'rgb(243 244 246)'}}/>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="Number">
+              <Form.Control type="number" placeholder="Enter your mobile number" style={{border:'none', borderBottom:'2px solid purple', outline:'none', boxShadow:'none', borderRadius:'0px', backgroundColor:'rgb(243 244 246)'}} className='border-b-'/>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="dest">
+              <Form.Control type="text" placeholder="Enter pickup place" style={{border:'none', borderBottom:'2px solid purple', outline:'none', boxShadow:'none', borderRadius:'0px', backgroundColor:'rgb(243 244 246)'}} className='border-b-'/>
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </div>
+      </div>
+
+      <div className="contactUs bg-gray-800 py-2">
+        <div className="contactHeading flex flex-col items-center justify-center py-2">
+          <h1 className='text-center text-3xl font-normal text-purple-200'>Contact Us</h1>
+          <div className="para text-base text-purple-200 font-normal text-center">We will glad to meet you</div>
+        </div>
+        <div className="px-2">
+          <div className="contact">
+            <h1 className='text-white font-normal text-base'>Phone : +91 9988346901 (INDIA)</h1>
+            <h1 className="text-white font-normal text-base">Email : gopalvermakurali.ondot@gmail.com</h1>
+          </div>
+        </div>
+      </div>
+
+    </>
+  )
+}
