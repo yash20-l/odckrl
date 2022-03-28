@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Image from "next/image"
 import { HiOutlineMenuAlt3 } from "react-icons/hi"
-import { useRef } from 'react/cjs/react.development'
-import { Carousel , Form, Button} from "react-bootstrap"
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useRef } from 'react'
+import { Carousel, Form, Button } from "react-bootstrap"
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home() {
 
@@ -36,35 +36,40 @@ export default function Home() {
       </div>
 
       {/*  navbar goes here */}
-      <div className="navbar w-full bg-purple-400 px-2">
-        <div className="contents-wrapper relative w-full h-full md:flex-row md:flex items-center">
+      <div className="navbar w-full bg-purple-400 py-4">
+        <div className="contents-wrapper px-2  w-full h-full md:flex-row flex items-center justify-between">
           <div className="brand">
-            <Image src="/skyking.png" height={60} width={100}></Image>
+            {/* <Image src="/skyking.png" height={60} width={100} alt=""></Image> */}
+            <h1 className='text-xl font-bold text-white'>On Dot Courier, Kurali</h1>
           </div>
-
-          <HiOutlineMenuAlt3 style={{ color: 'white', height: '40px', width: "40px", cursor: 'pointer' }} className="absolute top-4 right-0 md:hidden" ref={Menuref} onClick={handleOnClick} />
-
-          <div className="MenuWrapper hidden transition duration-200 ease-in-out md:flex-row md:flex h-full w-full items-center justify-evenly" ref={Hiddenref}>
-
-            <div className="menu  md:block">
+          <div className="MenuWrapper hidden transition duration-200 ease-in-out md:flex-row md:flex  items-center justify-between">
+            <div className="menu hidden  md:block">
               <div className="items flex flex-col md:flex-row">
-                <a href="" className='p-2 text-white text-base font-bold ease-in duration-100 hover:text-purple-800'><span>Home</span></a>
-                <a href="" className='p-2 text-white text-base font-bold ease-in duration-100 hover:text-purple-800'  ><span>Services</span></a>
-                <a href="" className='p-2 text-white text-base font-bold ease-in duration-100 hover:text-purple-800' ><span>Pickup</span></a>
-                <a href="" className='p-2 text-white text-base font-bold ease-in duration-100 hover:text-purple-800' ><span>Contact Us</span></a>
-              </div>
-            </div>
-
-            <div className="extraOptions  md:block">
-              <div className="items">
-                <a href="">option1</a>
-                <a href="">option2</a>
+                <a href="" className='p-2 text-white text-lg font-bold ease-in duration-100 hover:text-purple-800'><span>Home</span></a>
+                <a href="" className='p-2 text-white text-lg font-bold ease-in duration-100 hover:text-purple-800'  ><span>Services</span></a>
+                <a href="" className='p-2 text-white text-lg font-bold ease-in duration-100 hover:text-purple-800' ><span>Pickup</span></a>
+                <a href="" className='p-2 text-white text-lg font-bold ease-in duration-100 hover:text-purple-800' ><span>Contact Us</span></a>
               </div>
             </div>
           </div>
+
+          <HiOutlineMenuAlt3 style={{ color: 'white', height: '30px', width: "40px", cursor: 'pointer' }} className="md:hidden" ref={Menuref} onClick={handleOnClick} />
 
         </div>
+
+        <div className="mobileMenu py-2 hidden md:hidden" ref={Hiddenref}>
+          <div className="mobile-MenuWrapper bg-purple-400">
+            <div className="items flex flex-col items-center justify-center">
+              <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800'><span>Home</span></a>
+              <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800'  ><span>Services</span></a>
+              <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800' ><span>Pickup</span></a>
+              <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800' ><span>Contact Us</span></a>
+            </div>
+          </div>
+        </div>
+
       </div>
+
       <div className="heroSection flex px-4 flex-col md:flex-row">
         <div className="main">
           <div className="heading">
@@ -76,8 +81,9 @@ export default function Home() {
           </div>
         </div>
         <div className="image">
-          <Image src={'/globe.png'} height={800} width={800}></Image>
+          <Image src={'/globe.png'} height={800} width={800} alt=""></Image>
         </div>
+
       </div>
 
       {/* services section start */}
@@ -128,7 +134,7 @@ export default function Home() {
       </div>
       {/* Testomonals Section */}
 
-      <div className="testomonalsMain py-8  bg-gray-800">
+      {/* <div className="testomonalsMain py-8  bg-gray-800">
         <div className="TestimonalsHeading text-center font-bold text-5xl text-white">
           <h1>Testimonials</h1>
         </div>
@@ -220,7 +226,7 @@ export default function Home() {
             </Button>
           </Form>
         </div>
-      </div>
+      </div> */}
 
       <div className="contactUs bg-gray-800 py-2">
         <div className="contactHeading flex flex-col items-center justify-center py-2">
