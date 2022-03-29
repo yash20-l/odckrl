@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from "next/image"
 import { HiOutlineMenuAlt3 } from "react-icons/hi"
-import React, { useRef } from 'react'
+import React, { useRef , useEffect, useState} from 'react'
 import { Carousel, Form, Button } from "react-bootstrap"
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -9,10 +9,29 @@ export default function Home() {
 
   const Menuref = useRef(null);
   const Hiddenref = useRef(null);
+  const NavbarRef = useRef(null);
+
+  const [scrolled , setScrolled] = useState(false);
 
   const handleOnClick = () => {
     Hiddenref.current.classList.toggle('hidden')
   }
+
+  const handleScroll = () => {
+    const offset = window.scrollY;
+
+    if (offset > 200) {
+        setScrolled(true);
+    }
+    else {
+        setScrolled(false);
+    }
+}
+
+  useEffect(()=>{
+    window.addEventListener('scroll', handleScroll)
+    console.log(scrolled);
+  }, [])
 
   const settings = {
     dots: true,
@@ -21,7 +40,6 @@ export default function Home() {
     slidesToShow: 1,
     slidesToScroll: 1
   };
-
 
   return (
     <>
@@ -36,24 +54,24 @@ export default function Home() {
       </div>
 
       {/*  navbar goes here */}
-      <div className="navbar w-full bg-purple-400 py-4">
+      <div  ref={NavbarRef} className={scrolled?"navbar z-50 text-white fixed w-full bg-purple-400 py-4 border-b-2 border-black" : "navbar sticky w-full bg-white py-4 border-b-2 border-black"}>
         <div className="contents-wrapper px-2  w-full h-full md:flex-row flex items-center justify-between">
           <div className="brand">
             {/* <Image src="/skyking.png" height={60} width={100} alt=""></Image> */}
-            <h1 className='text-xl font-bold text-white'>On Dot Courier, Kurali</h1>
+            <h1 className='text-2xl font-bold text-black'>On Dot Courier, Kurali</h1>
           </div>
           <div className="MenuWrapper hidden transition duration-200 ease-in-out md:flex-row md:flex  items-center justify-between">
             <div className="menu hidden  md:block">
               <div className="items flex flex-col md:flex-row">
-                <a href="" className='p-2 text-white text-lg font-bold ease-in duration-100 hover:text-purple-800'><span>Home</span></a>
-                <a href="" className='p-2 text-white text-lg font-bold ease-in duration-100 hover:text-purple-800'  ><span>Services</span></a>
-                <a href="" className='p-2 text-white text-lg font-bold ease-in duration-100 hover:text-purple-800' ><span>Pickup</span></a>
-                <a href="" className='p-2 text-white text-lg font-bold ease-in duration-100 hover:text-purple-800' ><span>Contact Us</span></a>
+                <a href="" className='p-2 text-lg font-bold ease-in duration-100 hover:text-purple-800'><span>Home</span></a>
+                <a href="" className='p-2 text-black text-lg font-bold ease-in duration-100 hover:text-purple-800'  ><span>Services</span></a>
+                <a href="" className='p-2 text-black text-lg font-bold ease-in duration-100 hover:text-purple-800' ><span>Pickup</span></a>
+                <a href="" className='p-2 text-black text-lg font-bold ease-in duration-100 hover:text-purple-800' ><span>Contact Us</span></a>
               </div>
             </div>
           </div>
 
-          <HiOutlineMenuAlt3 style={{ color: 'white', height: '30px', width: "40px", cursor: 'pointer' }} className="md:hidden" ref={Menuref} onClick={handleOnClick} />
+          <HiOutlineMenuAlt3 style={{ color: 'black', height: '30px', width: "40px", cursor: 'pointer' }} className="md:hidden" ref={Menuref} onClick={handleOnClick} />
 
         </div>
 
@@ -70,7 +88,7 @@ export default function Home() {
 
       </div>
 
-      <div className="heroSection flex px-4 flex-col md:flex-row">
+      <div className="heroSection flex px-4 flex-col z-0 md:flex-row">
         <div className="main">
           <div className="heading">
             <h1 className='leading-tight text-5xl text-gray-800 font-bold mt-20 mb-10 md:text-6xl md:mt-40'>The Best Courier Shop In Tricity !</h1>
@@ -80,8 +98,8 @@ export default function Home() {
             <button className='p-2 bg-white mx-2 border-2 font-normal rounded-xl border-red-500 text-lg ease-in duration-100 text-black hover:text-red-600'>Get Directions</button>
           </div>
         </div>
-        <div className="image">
-          <Image src={'/globe.png'} height={800} width={800} alt=""></Image>
+        <div className="image z-0 relative">
+          <Image src={'/globe.png'} objectFit="contain"  priority={true} height={800} width={800} alt="globe"></Image>
         </div>
 
       </div>
