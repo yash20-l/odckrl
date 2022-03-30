@@ -1,9 +1,11 @@
 import Head from 'next/head'
+import { Navigation } from 'swiper';
+import 'swiper/css/navigation';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from "next/image"
 import { HiOutlineMenuAlt3 } from "react-icons/hi"
-import React, { useRef , useEffect, useState} from 'react'
-import { Carousel, Form, Button } from "react-bootstrap"
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useRef, useEffect, useState } from 'react'
+import 'swiper/css';
 
 export default function Home() {
 
@@ -11,7 +13,7 @@ export default function Home() {
   const Hiddenref = useRef(null);
   const NavbarRef = useRef(null);
 
-  const [scrolled , setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const handleOnClick = () => {
     Hiddenref.current.classList.toggle('hidden')
@@ -21,14 +23,14 @@ export default function Home() {
     const offset = window.scrollY;
 
     if (offset > 200) {
-        setScrolled(true);
+      setScrolled(true);
     }
     else {
-        setScrolled(false);
+      setScrolled(false);
     }
-}
+  }
 
-  useEffect(()=>{
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     console.log(scrolled);
   }, [])
@@ -55,7 +57,7 @@ export default function Home() {
       </div>
 
       {/*  navbar goes here */}
-      <div  ref={NavbarRef} className={scrolled?"navbar text-white z-50 fixed w-full bg-gray-800 py-4" : "navbar text-white sticky w-full bg-gray-800 py-4"}>
+      <div ref={NavbarRef} className={scrolled ? "navbar text-white z-50 fixed w-full bg-gray-800 py-4" : "navbar text-white sticky w-full bg-gray-800 py-4"}>
         <div className="contents-wrapper px-2  w-full h-full md:flex-row flex items-center justify-between">
           <div className="brand">
             {/* <Image src="/skyking.png" height={60} width={100} alt=""></Image> */}
@@ -72,7 +74,7 @@ export default function Home() {
             </div>
           </div>
 
-          <HiOutlineMenuAlt3 style={{height: '30px', width: "40px", cursor: 'pointer' }} className={scrolled?'white md:hidden': 'black md:hidden'} ref={Menuref} onClick={handleOnClick} />
+          <HiOutlineMenuAlt3 style={{ height: '30px', width: "40px", cursor: 'pointer' }} className={scrolled ? 'white md:hidden' : 'black md:hidden'} ref={Menuref} onClick={handleOnClick} />
 
         </div>
 
@@ -100,7 +102,7 @@ export default function Home() {
           </div> */}
         </div>
         <div className="image z-0 relative">
-          <Image src={'/globe.png'} objectFit="contain"  priority={true} height={800} width={800} alt="globe"></Image>
+          <Image src={'/globe.png'} objectFit="contain" priority={true} height={800} width={800} alt="globe"></Image>
         </div>
 
       </div>
@@ -112,7 +114,7 @@ export default function Home() {
           <h1 className='text-center text-4xl text-black font-bold px-2'>Our</h1><h1 className='px-2 text-4xl text-purple-500 font-bold text-purple-500'>Services</h1>
         </div>
         <div className="para text-center py-2">
-          <p className='font-medium text-xl text-gray-800' style={{fontFamily:"'Patrick Hand', cursive;"}}>What Can We Do For You...</p>
+          <p className='font-medium text-xl text-gray-800' style={{ fontFamily: "'Patrick Hand', cursive;" }}>What Can We Do For You...</p>
         </div>
         <div className="servicesContainer flex flex-col items-center justify-evenly md:flex-row">
           <div className="box p-2 m-2 rounded-xl bg-red-500 text-center my-2 relative">
@@ -151,18 +153,29 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+
+
       {/* Testomonals Section */}
 
-      {/* <div className="testomonalsMain py-8  bg-gray-800">
-        <div className="TestimonalsHeading text-center font-bold text-5xl text-white">
-          <h1>Testimonials</h1>
+
+
+      <div className="testimonalsMain bg-gray-800 py-10">
+        <div className="heading text-center text-white text-4xl">
+          <h1>Testimonals</h1>
         </div>
-        <div className="para text-center font-normal text-white text-lg">
-          <p>What others think about us</p>
+        <div className="para text-center text-white text-2xl py-2">
+          <h1 style={{ fontFamily: "'Patrick Hand', cursive;" }}>what others think about us ?</h1>
         </div>
-        <Carousel indicators={false}>
-          <Carousel.Item className='h-50'>
-            <div className="testimonalsWrapper flex flex-col items-center justify-evenly px-10 md:px-28 md:flex-row">
+        <Swiper
+          modules={[Navigation]}
+          spaceBetween={50}
+          slidesPerView={1}
+          navigation
+          onSlideChange={() => console.log('slide change')}
+          onSwiper={(swiper) => console.log(swiper)}>
+          <SwiperSlide>
+            <div className="testimonalsWrapper bg-gray-800 py-4 flex flex-col items-center justify-evenly px-10 md:px-28 md:flex-row">
               <div className="avatar w-full flex flex-col items-center justify-center">
                 <div className="image">
                   <Image src={'/3.jpg'} height={200} width={200} className={'rounded-full'}></Image>
@@ -171,51 +184,137 @@ export default function Home() {
                   <h1 className='text-4xl font-bold text-white'>Bhagwant Singh Maan</h1>
                 </div>
               </div>
-              <div className='desc w-full'>
+              <div className='desc w-full py-4 md:px-4'>
                 <div className="para text-left">
                   <p className="text-white font-medium text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta doloremque labore voluptatibus? Quos error, maiores magnam non tempora deserunt dolores?aliquid.</p>
                 </div>
               </div>
             </div>
-          </Carousel.Item>
-          <Carousel.Item className='h-50'>
-            <div className="testimonalsWrapper flex flex-col items-center justify-evenly px-10 md:px-28 md:flex-row">
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="testimonalsWrapper bg-gray-800 py-4 flex flex-col items-center justify-evenly px-10 md:px-28 md:flex-row">
               <div className="avatar w-full flex flex-col items-center justify-center">
                 <div className="image">
-                  <Image src={'/2.jpg'} height={200} width={200} className={'rounded-full'}></Image>
+                  <Image src={'/3.jpg'} height={200} width={200} className={'rounded-full'}></Image>
                 </div>
                 <div className="PersonName text-center py-2">
-                  <h1 className='text-4xl font-bold text-white'>Narendra Modi</h1>
+                  <h1 className='text-4xl font-bold text-white'>Bhagwant Singh Maan</h1>
                 </div>
               </div>
-              <div className='desc w-full'>
+              <div className='desc w-full py-4 md:px-4'>
                 <div className="para text-left">
-                  <p className="text-white font-medium text-xl">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus similique soluta excepturi odio officia praesentium dolor, illum quod, dolore eos voluptas? Enim non suscipit quo.</p>
+                  <p className="text-white font-medium text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta doloremque labore voluptatibus? Quos error, maiores magnam non tempora deserunt dolores?aliquid.</p>
                 </div>
               </div>
             </div>
-          </Carousel.Item>
-          <Carousel.Item className='h-50'>
-            <div className="testimonalsWrapper flex flex-col items-center justify-evenly px-10 md:px-28 md:flex-row">
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="testimonalsWrapper bg-gray-800 py-4 flex flex-col items-center justify-evenly px-10 md:px-28 md:flex-row">
               <div className="avatar w-full flex flex-col items-center justify-center">
                 <div className="image">
-                  <Image src={'/1.jpg'} height={200} width={200} className={'rounded-full'}></Image>
+                  <Image src={'/3.jpg'} height={200} width={200} className={'rounded-full'}></Image>
                 </div>
                 <div className="PersonName text-center py-2">
-                  <h1 className='text-4xl font-bold text-white'>D. Trump</h1>
+                  <h1 className='text-4xl font-bold text-white'>Bhagwant Singh Maan</h1>
                 </div>
               </div>
-              <div className='desc w-full'>
+              <div className='desc w-full py-4 md:px-4'>
                 <div className="para text-left">
-                  <p className="text-white font-medium text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quaerat libero provident aspernatur, voluptatibus totam iusto, esse eos in excepturi dolores ex deserunt assumenda nemo.</p>
+                  <p className="text-white font-medium text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta doloremque labore voluptatibus? Quos error, maiores magnam non tempora deserunt dolores?aliquid.</p>
                 </div>
               </div>
             </div>
-          </Carousel.Item>
-        </Carousel>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="testimonalsWrapper bg-gray-800 py-4 flex flex-col items-center justify-evenly px-10 md:px-28 md:flex-row">
+              <div className="avatar w-full flex flex-col items-center justify-center">
+                <div className="image">
+                  <Image src={'/3.jpg'} height={200} width={200} className={'rounded-full'}></Image>
+                </div>
+                <div className="PersonName text-center py-2">
+                  <h1 className='text-4xl font-bold text-white'>Bhagwant Singh Maan</h1>
+                </div>
+              </div>
+              <div className='desc w-full py-4 md:px-4'>
+                <div className="para text-left">
+                  <p className="text-white font-medium text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta doloremque labore voluptatibus? Quos error, maiores magnam non tempora deserunt dolores?aliquid.</p>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
       </div>
 
-      <div className="ReachUs w-full px-2 my-2">
+      <div className="reachusSection p-4">
+        <div className="reachusWrapper flex flex-col-reverse align-center justify-center md:flex-row">
+          <div className="imageWrapper w-full">
+            <Image width={400} height={300} src="/contact.png"></Image>
+          </div>
+          <div className="formWrapper w-full">
+            <form class="w-full max-w-lg">
+              <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                    First Name
+                  </label>
+                  <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" />
+                  <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+                </div>
+                <div class="w-full md:w-1/2 px-3">
+                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                    Last Name
+                  </label>
+                  <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe" />
+                </div>
+              </div>
+              <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full px-3">
+                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                    Password
+                  </label>
+                  <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="******************" />
+                  <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
+                </div>
+              </div>
+              <div class="flex flex-wrap -mx-3 mb-2">
+                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
+                    City
+                  </label>
+                  <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Albuquerque" />
+                </div>
+                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state" />
+                  State
+
+                  <div class="relative">
+                    <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                      <option>New Mexico</option>
+                      <option>Missouri</option>
+                      <option>Texas</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                    Zip
+                  </label>
+                  <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      {/* <div className="ReachUs w-full px-2 my-2">
         <div className="reachTitle py-2 flex flex-row items-center justify-center">
           <h1 className='text-3xl font-normal text-gray-800 text-center'>How To</h1><h1 className='text-3xl text-purple-500 px-2 font-normal'>Reach</h1> <h1 className='text-3xl text-gray-800 font-normal'>Us ?</h1>
         </div>
@@ -246,6 +345,8 @@ export default function Home() {
           </Form>
         </div>
       </div> */}
+
+
 
       <div className="contactUs bg-gray-800 py-2">
         <div className="contactHeading flex flex-col items-center justify-center py-2">
