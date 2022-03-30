@@ -46,6 +46,7 @@ export default function Home() {
       <div className="head">
         <Head>
           <title>On Dot Courier Kurali</title>
+          <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@300&display=swap" rel="stylesheet"></link>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
@@ -54,29 +55,29 @@ export default function Home() {
       </div>
 
       {/*  navbar goes here */}
-      <div  ref={NavbarRef} className={scrolled?"navbar z-50 text-white fixed w-full bg-purple-400 py-4 border-b-2 border-black" : "navbar sticky w-full bg-white py-4 border-b-2 border-black"}>
+      <div  ref={NavbarRef} className={scrolled?"navbar text-white z-50 fixed w-full bg-gray-800 py-4" : "navbar text-white sticky w-full bg-gray-800 py-4"}>
         <div className="contents-wrapper px-2  w-full h-full md:flex-row flex items-center justify-between">
           <div className="brand">
             {/* <Image src="/skyking.png" height={60} width={100} alt=""></Image> */}
-            <h1 className='text-2xl font-bold text-black'>On Dot Courier, Kurali</h1>
+            <h1 className='text-2xl font-bold '>On Dot Courier, Kurali</h1>
           </div>
-          <div className="MenuWrapper hidden transition duration-200 ease-in-out md:flex-row md:flex  items-center justify-between">
+          <div className="MenuWrapper hidden md:flex-row md:flex  items-center justify-between">
             <div className="menu hidden  md:block">
-              <div className="items flex flex-col md:flex-row">
-                <a href="" className='p-2 text-lg font-bold ease-in duration-100 hover:text-purple-800'><span>Home</span></a>
-                <a href="" className='p-2 text-black text-lg font-bold ease-in duration-100 hover:text-purple-800'  ><span>Services</span></a>
-                <a href="" className='p-2 text-black text-lg font-bold ease-in duration-100 hover:text-purple-800' ><span>Pickup</span></a>
-                <a href="" className='p-2 text-black text-lg font-bold ease-in duration-100 hover:text-purple-800' ><span>Contact Us</span></a>
+              <div className="items  flex flex-col md:flex-row">
+                <a href="" className='p-2 text-lg font-bold ease-in duration-100 hover:text-red-300'><span>Home</span></a>
+                <a href="" className='p-2  text-lg font-bold ease-in duration-100 hover:text-red-300'  ><span>Services</span></a>
+                <a href="" className='p-2  text-lg font-bold ease-in duration-100 hover:text-red-300' ><span>Pickup</span></a>
+                <a href="" className='p-2  text-lg font-bold ease-in duration-100 hover:text-red-300' ><span>Contact Us</span></a>
               </div>
             </div>
           </div>
 
-          <HiOutlineMenuAlt3 style={{ color: 'black', height: '30px', width: "40px", cursor: 'pointer' }} className="md:hidden" ref={Menuref} onClick={handleOnClick} />
+          <HiOutlineMenuAlt3 style={{height: '30px', width: "40px", cursor: 'pointer' }} className={scrolled?'white md:hidden': 'black md:hidden'} ref={Menuref} onClick={handleOnClick} />
 
         </div>
 
-        <div className="mobileMenu py-2 hidden md:hidden" ref={Hiddenref}>
-          <div className="mobile-MenuWrapper bg-purple-400">
+        <div className="mobileMenu py-2 fixed w-full hidden md:hidden" ref={Hiddenref}>
+          <div className="mobile-MenuWrapper bg-gray-800">
             <div className="items flex flex-col items-center justify-center">
               <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800'><span>Home</span></a>
               <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800'  ><span>Services</span></a>
@@ -91,12 +92,12 @@ export default function Home() {
       <div className="heroSection flex px-4 flex-col z-0 md:flex-row">
         <div className="main">
           <div className="heading">
-            <h1 className='leading-tight text-5xl text-gray-800 font-bold mt-20 mb-10 md:text-6xl md:mt-40'>The Best Courier Shop In Tricity !</h1>
+            <h1 className='leading-tight text-5xl text-gray-800 font-bold mt-20 mb-10 md:text-6xl md:mt-40'>The Best Courier Shop In Punjab !</h1>
           </div>
-          <div className="buttons">
-            <button className='p-2 border-red-500 border-2 bg-red-500 text-lg mx-2  rounded-xl text-white font-normal ease-in duration-100 hover:bg-red-600'>Request Pickup</button>
-            <button className='p-2 bg-white mx-2 border-2 font-normal rounded-xl border-red-500 text-lg ease-in duration-100 text-black hover:text-red-600'>Get Directions</button>
-          </div>
+          {/* <div className="buttons">
+            <button className='p-1 border-red-500 border-2 bg-red-500 text-lg mx-2  rounded-xl text-white font-normal ease-in duration-100 hover:bg-red-600'>Request Pickup</button>
+            <button className='p-1 bg-white mx-2 border-2 font-normal rounded-xl border-red-500 text-lg ease-in duration-100 text-black hover:text-white hover:bg-red-500'>Get Directions</button>
+          </div> */}
         </div>
         <div className="image z-0 relative">
           <Image src={'/globe.png'} objectFit="contain"  priority={true} height={800} width={800} alt="globe"></Image>
@@ -108,10 +109,10 @@ export default function Home() {
 
       <div className="servicesSection bg-gray-100 py-8">
         <div className="heading flex flex-row text-center items-center justify-center">
-          <h1 className='text-center text-5xl text-black font-bold px-2'>Our</h1><h1 className='px-2 text-5xl text-purple-500 font-bold text-purple-500'>Services</h1>
+          <h1 className='text-center text-4xl text-black font-bold px-2'>Our</h1><h1 className='px-2 text-4xl text-purple-500 font-bold text-purple-500'>Services</h1>
         </div>
         <div className="para text-center py-2">
-          <p className='font-medium text-xl text-gray-800'>What Can We Do For You...</p>
+          <p className='font-medium text-xl text-gray-800' style={{fontFamily:"'Patrick Hand', cursive;"}}>What Can We Do For You...</p>
         </div>
         <div className="servicesContainer flex flex-col items-center justify-evenly md:flex-row">
           <div className="box p-2 m-2 rounded-xl bg-red-500 text-center my-2 relative">
@@ -123,7 +124,7 @@ export default function Home() {
               <h1 className='text-2xl'>Domestic Cargo</h1>
             </div>
             <div className="description my-2 text-lg text-white font-normal">
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores, a? Esse ratione ipsum vitae, alias quisquam dicta nesciunt culpa, dolore et accusamus eius rerum minima.</p>
+              <p>we deliver all over the india. we have several domestic courier franchies available like skyking courier, professional courier, shree anjani courier and shree nandan courier. </p>
             </div>
           </div>
           <div className="box p-2 m-2 rounded-xl bg-blue-500 text-center my-2 relative">
@@ -134,7 +135,7 @@ export default function Home() {
               <h1 className='text-2xl'>International Cargo</h1>
             </div>
             <div className="description my-2 text-lg text-white font-normal">
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores, a? Esse ratione ipsum vitae, alias quisquam dicta nesciunt culpa, dolore et accusamus eius rerum minima.</p>
+              <p>we cover all over the globe. we have a list of International courier companies i.e dhl, fedex, ups, dpd, tnt</p>
             </div>
           </div>
           <div className="box p-2 m-2 rounded-xl bg-purple-500 text-center my-2 relative">
