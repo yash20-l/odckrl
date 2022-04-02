@@ -1,6 +1,7 @@
 import Head from 'next/head'
-import { Navigation } from 'swiper';
+import { Navigation, EffectFade } from 'swiper';
 import 'swiper/css/navigation';
+import 'swiper/css/effect-fade'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from "next/image"
 import { HiOutlineMenuAlt3 } from "react-icons/hi"
@@ -161,10 +162,10 @@ export default function Home() {
 
 
       <div className="testimonalsMain bg-gray-800 py-10">
-        <div className="heading text-center text-white text-4xl">
+        <div className="heading text-center text-white text-3xl">
           <h1>Testimonals</h1>
         </div>
-        <div className="para text-center text-white text-2xl py-2">
+        <div className="para text-center text-white text-xl py-2">
           <h1 style={{ fontFamily: "'Patrick Hand', cursive;" }}>what others think about us ?</h1>
         </div>
         <Swiper
@@ -245,118 +246,76 @@ export default function Home() {
         </Swiper>
       </div>
 
-      <div className="reachusSection p-4">
-        <div className="reachusWrapper flex flex-col-reverse align-center justify-center md:flex-row">
-          <div className="imageWrapper w-full">
-            <Image width={400} height={300} src="/contact.png"></Image>
-          </div>
-          <div className="formWrapper w-full">
-            <form class="w-full max-w-lg">
-              <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-                    First Name
-                  </label>
-                  <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" />
-                  <p class="text-red-500 text-xs italic">Please fill out this field.</p>
-                </div>
-                <div class="w-full md:w-1/2 px-3">
-                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-                    Last Name
-                  </label>
-                  <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe" />
-                </div>
-              </div>
-              <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full px-3">
-                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                    Password
-                  </label>
-                  <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="******************" />
-                  <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
-                </div>
-              </div>
-              <div class="flex flex-wrap -mx-3 mb-2">
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
-                    City
-                  </label>
-                  <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Albuquerque" />
-                </div>
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state" />
-                  State
-
-                  <div class="relative">
-                    <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
-                      <option>New Mexico</option>
-                      <option>Missouri</option>
-                      <option>Texas</option>
-                    </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-                    Zip
-                  </label>
-                  <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210" />
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
 
 
-
-
-
-      {/* <div className="ReachUs w-full px-2 my-2">
+      <div className="ReachUs w-full px-2 my-4">
         <div className="reachTitle py-2 flex flex-row items-center justify-center">
-          <h1 className='text-3xl font-normal text-gray-800 text-center'>How To</h1><h1 className='text-3xl text-purple-500 px-2 font-normal'>Reach</h1> <h1 className='text-3xl text-gray-800 font-normal'>Us ?</h1>
+          <h1 className='text-3xl font-bold text-gray-800 text-center'>How To</h1><h1 className='text-3xl text-purple-500 px-2 font-bold'>Reach</h1> <h1 className='text-3xl text-gray-800 font-bold'>Us ?</h1>
         </div>
-        <div className="para">
-          <p className='text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ratione vitae harum, fugit deserunt reiciendis ipsa consequuntur id veniam, alias minus soluta nam unde eos cupiditate! Veniam soluta eos eaque?</p>
+        <div className="para py-2">
+          <p className='text-center'>On dot courier and cargo limited is situated opp. Pnb bank, Ropar road, kurali. We deal in domestic and international cargo. We serve all over the globe 🌎. Our topmost priority is fast and accurate delivery at minimum cost. Must give one chance</p>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3425.8385683299425!2d76.57688002806603!3d30.83518921128908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ffbd8a026d03d%3A0xe913902c62acf549!2sOn%20Dot%20Courier%20service!5e0!3m2!1sen!2sin!4v1647755049537!5m2!1sen!2sin" className='h-full w-full' style={{ border: 0 }}  loading="lazy"></iframe>
+        <div className="map py-4">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3425.8385683299425!2d76.57688002806603!3d30.83518921128908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ffbd8a026d03d%3A0xe913902c62acf549!2sOn%20Dot%20Courier%20service!5e0!3m2!1sen!2sin!4v1647755049537!5m2!1sen!2sin" className='h-full w-full' style={{ border: 0 }} loading="lazy"></iframe>
+        </div>
       </div>
 
-      <div className="requestPickup py-4 bg-gray-100">
-        <div className="requestheading flex flex-row items-center justify-center my-2">
-          <h1 className='text-center text-3xl font-normal text-red-500'>Request</h1><h1 className='px-2 text-3xl font-normal text-gray-800'>Pickup</h1>
+      <div className="ImageGallery bg-red-500 py-2">
+        <div className="ImageGalleryHeading py-2">
+          <h1 className='text-3xl text-white text-center'>Gallery</h1>
         </div>
-        <div className="requestForm px-3">
-          <Form>
-            <Form.Group className="my-3" controlId="Email">
-              <Form.Control type="text" placeholder="Enter your name" style={{border:'none', borderBottom:'2px solid purple', outline:'none', boxShadow:'none', borderRadius:'0px', backgroundColor:'rgb(243 244 246)'}}/>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="Number">
-              <Form.Control type="number" placeholder="Enter your mobile number" style={{border:'none', borderBottom:'2px solid purple', outline:'none', boxShadow:'none', borderRadius:'0px', backgroundColor:'rgb(243 244 246)'}} className='border-b-'/>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="dest">
-              <Form.Control type="text" placeholder="Enter pickup place" style={{border:'none', borderBottom:'2px solid purple', outline:'none', boxShadow:'none', borderRadius:'0px', backgroundColor:'rgb(243 244 246)'}} className='border-b-'/>
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
+        <div className="GallerySlider">
+          <Swiper modules={[EffectFade, Navigation]}
+            effect="fade"
+            navigation
+            spaceBetween={50}
+            slidesPerView={3}
+            onSwiper={(swiper) => console.log(swiper)}
+            onSlideChange={() => console.log('slide change')}
+          >
+            <SwiperSlide>
+              <div className="GalleryImage">
+                <Image src={'/2.jpeg'} height={500} width={500}></Image>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="GalleryImage">
+                <Image src={'/3.jpeg'} height={500} width={500}></Image>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="GalleryImage">
+                <Image src={'/4.jpeg'} height={500} width={500}></Image>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="GalleryImage">
+                <Image src={'/5.jpeg'} height={500} width={500}></Image>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="GalleryImage">
+                <Image src={'/6.jpeg'} height={500} width={500}></Image>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="GalleryImage">
+                <Image src={'/1.jpeg'} height={500} width={500}></Image>
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
-      </div> */}
+      </div>
 
-
-
-      <div className="contactUs bg-gray-800 py-2">
+      <div className="contactUs bg-gray-200 py-2">
         <div className="contactHeading flex flex-col items-center justify-center py-2">
-          <h1 className='text-center text-3xl font-normal text-purple-200'>Contact Us</h1>
-          <div className="para text-base text-purple-200 font-normal text-center">We will glad to meet you</div>
+          <h1 className='text-center text-3xl font-normal text-gray-800'>Contact Us</h1>
+          <div className="para text-lg text-gray-800 font-normal text-center" style={{ fontFamily: "'Patrick Hand', cursive;" }}>We will glad to meet you</div>
         </div>
         <div className="px-2">
           <div className="contact">
-            <h1 className='text-white font-normal text-base'>Phone : +91 9988346901 (INDIA)</h1>
-            <h1 className="text-white font-normal text-base">Email : gopalvermakurali.ondot@gmail.com</h1>
+            <h1 className='text-gray-800 font-normal text-base'>Phone : +91 9988346901 (INDIA)</h1>
+            <h1 className="text-gray-800 font-normal text-base">Email : gopalvermakurali.ondot@gmail.com</h1>
           </div>
         </div>
       </div>
