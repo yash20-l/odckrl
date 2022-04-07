@@ -1,7 +1,9 @@
-import Head from 'next/head'
-import { Navigation, EffectFade } from 'swiper';
+import Head from 'next/head';
+import "swiper/css/autoplay";
+import { Navigation, Autoplay } from 'swiper';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade'
+import { MdCall } from "react-icons/md"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from "next/image"
 import { HiOutlineMenuAlt3 } from "react-icons/hi"
@@ -36,14 +38,6 @@ export default function Home() {
     console.log(scrolled);
   }, [])
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
-
   return (
     <>
       <div className="head">
@@ -58,11 +52,11 @@ export default function Home() {
       </div>
 
       {/*  navbar goes here */}
-      <div ref={NavbarRef} className={scrolled ? "navbar text-white z-50 fixed w-full bg-gray-800 py-4" : "navbar text-white sticky w-full bg-gray-800 py-4"}>
+      <div ref={NavbarRef} className={scrolled ? "navbar text-white z-50 fixed w-full bg-gray-800 py-4 shadow-lg shadow-black" : "navbar text-white sticky w-full bg-gray-800 py-4"}>
         <div className="contents-wrapper px-2  w-full h-full md:flex-row flex items-center justify-between">
           <div className="brand">
             {/* <Image src="/skyking.png" height={60} width={100} alt=""></Image> */}
-            <h1 className='text-2xl font-bold '>On Dot Courier, Kurali</h1>
+            <h1 className='text-xl font-bold '>On Dot Courier, Kurali</h1>
           </div>
           <div className="MenuWrapper hidden md:flex-row md:flex  items-center justify-between">
             <div className="menu hidden  md:block">
@@ -169,25 +163,25 @@ export default function Home() {
           <h1 style={{ fontFamily: "'Patrick Hand', cursive;" }}>what others think about us ?</h1>
         </div>
         <Swiper
-          modules={[Navigation]}
+          modules={[Navigation, Autoplay]}
+          autoplay={true}
           spaceBetween={50}
           slidesPerView={1}
           navigation
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}>
+          >
           <SwiperSlide>
             <div className="testimonalsWrapper bg-gray-800 py-4 flex flex-col items-center justify-evenly px-10 md:px-28 md:flex-row">
               <div className="avatar w-full flex flex-col items-center justify-center">
                 <div className="image">
-                  <Image src={'/3.jpg'} height={200} width={200} className={'rounded-full'}></Image>
+                  <Image src={'/boy.png'} height={200} width={200} className={'rounded-full'}></Image>
                 </div>
                 <div className="PersonName text-center py-2">
-                  <h1 className='text-4xl font-bold text-white'>Bhagwant Singh Maan</h1>
+                  <h1 className='text-3xl font-bold text-white capitalize'>Mankirat Singh</h1>
                 </div>
               </div>
               <div className='desc w-full py-4 md:px-4'>
                 <div className="para text-left">
-                  <p className="text-white font-medium text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta doloremque labore voluptatibus? Quos error, maiores magnam non tempora deserunt dolores?aliquid.</p>
+                  <p className="text-white font-medium text-xl capitalize"><div className="quotes block w-full py-4"><Image src="/quote.gif" alt="quote" height={50} width={50} className='block'/></div>with on dot couriers i can send my material easily to my friend in canada. the price was also nominal as compared to other shops.</p>
                 </div>
               </div>
             </div>
@@ -196,15 +190,15 @@ export default function Home() {
             <div className="testimonalsWrapper bg-gray-800 py-4 flex flex-col items-center justify-evenly px-10 md:px-28 md:flex-row">
               <div className="avatar w-full flex flex-col items-center justify-center">
                 <div className="image">
-                  <Image src={'/3.jpg'} height={200} width={200} className={'rounded-full'}></Image>
+                  <Image src={'/girl.png'} height={200} width={200} className={'rounded-full'}></Image>
                 </div>
                 <div className="PersonName text-center py-2">
-                  <h1 className='text-4xl font-bold text-white'>Bhagwant Singh Maan</h1>
+                  <h1 className='text-3xl font-bold text-white capitalize'>Vishali Verma</h1>
                 </div>
               </div>
               <div className='desc w-full py-4 md:px-4'>
                 <div className="para text-left">
-                  <p className="text-white font-medium text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta doloremque labore voluptatibus? Quos error, maiores magnam non tempora deserunt dolores?aliquid.</p>
+                  <p className="text-white font-medium text-xl capitalize"><div className="quotes block w-full py-4"><Image src="/quote.gif" alt="quote" height={50} width={50} className='block'/></div>they provide the best cargo service in this area. experienced shopkeeper and accurate delivery. i liked that keep it up..</p>
                 </div>
               </div>
             </div>
@@ -213,32 +207,15 @@ export default function Home() {
             <div className="testimonalsWrapper bg-gray-800 py-4 flex flex-col items-center justify-evenly px-10 md:px-28 md:flex-row">
               <div className="avatar w-full flex flex-col items-center justify-center">
                 <div className="image">
-                  <Image src={'/3.jpg'} height={200} width={200} className={'rounded-full'}></Image>
+                  <Image src={'/boy.png'} height={200} width={200} className={'rounded-full'}></Image>
                 </div>
                 <div className="PersonName text-center py-2">
-                  <h1 className='text-4xl font-bold text-white'>Bhagwant Singh Maan</h1>
+                  <h1 className='text-3xl font-bold text-white'>Jasbir Singh Chauhan</h1>
                 </div>
               </div>
               <div className='desc w-full py-4 md:px-4'>
                 <div className="para text-left">
-                  <p className="text-white font-medium text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta doloremque labore voluptatibus? Quos error, maiores magnam non tempora deserunt dolores?aliquid.</p>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="testimonalsWrapper bg-gray-800 py-4 flex flex-col items-center justify-evenly px-10 md:px-28 md:flex-row">
-              <div className="avatar w-full flex flex-col items-center justify-center">
-                <div className="image">
-                  <Image src={'/3.jpg'} height={200} width={200} className={'rounded-full'}></Image>
-                </div>
-                <div className="PersonName text-center py-2">
-                  <h1 className='text-4xl font-bold text-white'>Bhagwant Singh Maan</h1>
-                </div>
-              </div>
-              <div className='desc w-full py-4 md:px-4'>
-                <div className="para text-left">
-                  <p className="text-white font-medium text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta doloremque labore voluptatibus? Quos error, maiores magnam non tempora deserunt dolores?aliquid.</p>
+                  <p className="text-white font-medium text-xl"><div className="quotes block w-full py-4"><Image src="/quote.gif" alt="quote" height={50} width={50} className='block'/></div>very nice service. my every consignment is delivered on time. nice shopkeeper. they never disappointed me.</p>
                 </div>
               </div>
             </div>
@@ -253,13 +230,13 @@ export default function Home() {
           <h1 className='text-3xl font-bold text-gray-800 text-center'>How To</h1><h1 className='text-3xl text-purple-500 px-2 font-bold'>Reach</h1> <h1 className='text-3xl text-gray-800 font-bold'>Us ?</h1>
         </div>
         <div className="para py-2">
-          <p className='text-center'>On dot courier and cargo limited is situated opp. Pnb bank, Ropar road, kurali. We deal in domestic and international cargo. We serve all over the globe 🌎. Our topmost priority is fast and accurate delivery at minimum cost. Must give one chance</p>
+          <p className='text-center'>On dot courier and cargo limited is located opp. Pnb bank, Ropar road, kurali. We deal in domestic and international cargo. We serve all over the globe 🌎. Our topmost priority is fast and accurate delivery at minimum cost. Must give one chance</p>
         </div>
-        <div className="map py-4">
+        <div className="map py-4 h-60">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3425.8385683299425!2d76.57688002806603!3d30.83518921128908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ffbd8a026d03d%3A0xe913902c62acf549!2sOn%20Dot%20Courier%20service!5e0!3m2!1sen!2sin!4v1647755049537!5m2!1sen!2sin" className='h-full w-full' style={{ border: 0 }} loading="lazy"></iframe>
         </div>
       </div>
-
+{/* 
       <div className="ImageGallery bg-red-500 py-2">
         <div className="ImageGalleryHeading py-2">
           <h1 className='text-3xl text-white text-center'>Gallery</h1>
@@ -305,7 +282,11 @@ export default function Home() {
             </SwiperSlide>
           </Swiper>
         </div>
-      </div>
+      </div> */}
+
+      <a href="tel:+91 9988346901"><div className="callBtn bg-blue-500 fixed right-4 bottom-6 shadow-lg opacity-2 shadow-black rounded-full p-4 md:hidden" style={{zIndex:1000}}>
+        <MdCall color='white' size={30}/>
+      </div></a>
 
       <div className="contactUs bg-gray-200 py-2">
         <div className="contactHeading flex flex-col items-center justify-center py-2">
@@ -316,6 +297,9 @@ export default function Home() {
           <div className="contact">
             <h1 className='text-gray-800 font-normal text-base'>Phone : +91 9988346901 (INDIA)</h1>
             <h1 className="text-gray-800 font-normal text-base">Email : gopalvermakurali.ondot@gmail.com</h1>
+            <hr className='h-1 opacity-1 bg-gray-300 my-2'/>
+            <h1 className="text-gray-800 font-normal text-base capitalize">Address : on dot courier and cargo ltd,<br />ropar road, opp. punjab national bank,<br />near bittu sweet shop,<br />kurali (pb) - 140103</h1>
+
           </div>
         </div>
       </div>
