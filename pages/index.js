@@ -77,8 +77,8 @@ export default function Home() {
           <div className="mobile-MenuWrapper bg-gray-800">
             <div className="items flex flex-col items-center justify-center">
               <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800'><span>Home</span></a>
-              <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800'  ><span>Services</span></a>
-              <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800' ><span>Pickup</span></a>
+              <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800'  ><span>Testimonals</span></a>
+              <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800' ><span>Reach us</span></a>
               <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800' ><span>Contact Us</span></a>
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function Home() {
               <h1 className='text-2xl'>Domestic Cargo</h1>
             </div>
             <div className="description my-2 text-lg text-white font-normal">
-              <p>we deliver all over the india. we have several domestic courier franchies available like skyking courier, professional courier, shree anjani courier and shree nandan courier. </p>
+              <p className='capitalize'>we delivery everywhere in india. our domestic franchise companies will deliver all your consignments fast and safe. costmer satisfaction and accurate delivery is our topmost priority.</p>
             </div>
           </div>
           <div className="box p-2 m-2 rounded-xl bg-blue-500 text-center my-2 relative">
@@ -132,7 +132,7 @@ export default function Home() {
               <h1 className='text-2xl'>International Cargo</h1>
             </div>
             <div className="description my-2 text-lg text-white font-normal">
-              <p>we cover all over the globe. we have a list of International courier companies i.e dhl, fedex, ups, dpd, tnt</p>
+              <p className='capitalize'>we serve all over the globe. our international cargo services will help you to send your package anywhere in this world. we offer fastest and most affordable services for international cargo.</p>
             </div>
           </div>
           <div className="box p-2 m-2 rounded-xl bg-purple-500 text-center my-2 relative">
@@ -143,7 +143,7 @@ export default function Home() {
               <h1 className='text-2xl'>Pan Card</h1>
             </div>
             <div className="description my-2 text-lg text-white font-normal">
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores, a? Esse ratione ipsum vitae, alias quisquam dicta nesciunt culpa, dolore et accusamus eius rerum minima.</p>
+              <p className='capitalize'>you can also apply your new government pan card here. after submission of required documents, we will get your new pan card ready within a week or two.</p>
             </div>
           </div>
         </div>
