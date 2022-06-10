@@ -9,6 +9,7 @@ import Image from "next/image"
 import { HiOutlineMenuAlt3 } from "react-icons/hi"
 import React, { useRef, useEffect, useState } from 'react'
 import 'swiper/css';
+import { Link, animateScroll as scroll } from "react-scroll";
 
 export default function Home() {
 
@@ -16,11 +17,17 @@ export default function Home() {
   const Hiddenref = useRef(null);
   const NavbarRef = useRef(null);
 
+  const homeRef = useRef(null)
+  const contactRef = useRef(null)
+  const pickupRef = useRef(null)
+  const servicesRef = useRef(null)
+
   const [scrolled, setScrolled] = useState(false);
 
   const handleOnClick = () => {
     Hiddenref.current.classList.toggle('hidden')
   }
+
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -32,6 +39,8 @@ export default function Home() {
       setScrolled(false);
     }
   }
+
+  // const scrollToRef = (ref) => Element.scrollTo(0, ref.current.offsetTop)  
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -61,10 +70,10 @@ export default function Home() {
           <div className="MenuWrapper hidden md:flex-row md:flex  items-center justify-between">
             <div className="menu hidden  md:block">
               <div className="items  flex flex-col md:flex-row">
-                <a href="" className='p-2 text-lg font-bold ease-in duration-100 hover:text-red-300'><span>Home</span></a>
-                <a href="" className='p-2  text-lg font-bold ease-in duration-100 hover:text-red-300'  ><span>Services</span></a>
-                <a href="" className='p-2  text-lg font-bold ease-in duration-100 hover:text-red-300' ><span>Pickup</span></a>
-                <a href="" className='p-2  text-lg font-bold ease-in duration-100 hover:text-red-300' ><span>Contact Us</span></a>
+                <Link href="" className='p-2 text-lg font-bold ease-in duration-100 hover:text-red-300' ref={homeRef} activeClass="home" to='home' spy={true} smooth={true} duration={500} offset={-70}><span>Home</span></Link>
+                <Link href="" className='p-2  text-lg font-bold ease-in duration-100 hover:text-red-300' ref={servicesRef} activeClass="services"  to='services' spy={true} smooth={true} duration={500} offset={-70}><span>Services</span></Link>
+                <Link href="" className='p-2  text-lg font-bold ease-in duration-100 hover:text-red-300' ref={pickupRef} activeClass="pickup" to='testimonals' spy={true} smooth={true} duration={500} offset={-70}><span>Testimonals</span></Link>
+                <Link href="" className='p-2  text-lg font-bold ease-in duration-100 hover:text-red-300' ref={contactRef} activeClass="contact" to='contact' spy={true} smooth={true} duration={500} offset={-70}><span>Contact Us</span></Link>
               </div>
             </div>
           </div>
@@ -76,17 +85,17 @@ export default function Home() {
         <div className="mobileMenu py-2 fixed w-full hidden md:hidden" ref={Hiddenref}>
           <div className="mobile-MenuWrapper bg-gray-800">
             <div className="items flex flex-col items-center justify-center">
-              <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800'><span>Home</span></a>
-              <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800'  ><span>Testimonals</span></a>
-              <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800' ><span>Reach us</span></a>
-              <a href="" className='p-2  text-lg text-white font-bold ease-in duration-100 hover:text-purple-800' ><span>Contact Us</span></a>
+            <Link href="" className='p-2 text-lg font-bold ease-in duration-100 hover:text-red-300' ref={homeRef} activeClass="home" to='home' spy={true} smooth={true} duration={500} offset={-70} onClick={handleOnClick}><span>Home</span></Link>
+                <Link href="" className='p-2  text-lg font-bold ease-in duration-100 hover:text-red-300' ref={servicesRef} activeClass="services"  to='services' spy={true} smooth={true} duration={500} offset={-70} onClick={handleOnClick}><span>Services</span></Link>
+                <Link href="" className='p-2  text-lg font-bold ease-in duration-100 hover:text-red-300' ref={pickupRef} activeClass="pickup" to='testimonals' spy={true} smooth={true} duration={500} offset={-70} onClick={handleOnClick}><span>Testimonals</span></Link>
+                <Link href="" className='p-2  text-lg font-bold ease-in duration-100 hover:text-red-300' ref={contactRef} activeClass="contact" to='contact' spy={true} smooth={true} duration={500} offset={-70} onClick={handleOnClick}><span>Contact Us</span></Link>
             </div>
           </div>
         </div>
 
       </div>
 
-      <div className="heroSection flex px-4 flex-col z-0 md:flex-row">
+      <div className="heroSection home flex px-4 flex-col z-0 md:flex-row">
         <div className="main">
           <div className="heading">
             <h1 className='leading-tight text-5xl text-gray-800 font-bold mt-20 mb-10 md:text-6xl md:mt-40'>The Best Courier Shop In Punjab !</h1>
@@ -104,7 +113,7 @@ export default function Home() {
 
       {/* services section start */}
 
-      <div className="servicesSection bg-gray-100 py-8">
+      <div className="servicesSection services bg-gray-100 py-8">
         <div className="heading flex flex-row text-center items-center justify-center">
           <h1 className='text-center text-4xl text-black font-bold px-2'>Our</h1><h1 className='px-2 text-4xl text-purple-500 font-bold text-purple-500'>Services</h1>
         </div>
@@ -155,7 +164,7 @@ export default function Home() {
 
 
 
-      <div className="testimonalsMain bg-gray-800 py-10">
+      <div className="testimonalsMain bg-gray-800 py-10 testimonals">
         <div className="heading text-center text-white text-3xl">
           <h1>Testimonals</h1>
         </div>
@@ -225,7 +234,7 @@ export default function Home() {
 
 
 
-      <div className="ReachUs w-full px-2 my-4">
+      <div className="ReachUs  w-full px-2 my-4">
         <div className="reachTitle py-2 flex flex-row items-center justify-center">
           <h1 className='text-3xl font-bold text-gray-800 text-center'>How To</h1><h1 className='text-3xl text-purple-500 px-2 font-bold'>Reach</h1> <h1 className='text-3xl text-gray-800 font-bold'>Us ?</h1>
         </div>
@@ -288,7 +297,7 @@ export default function Home() {
         <MdCall color='white' size={30}/>
       </div></a>
 
-      <div className="contactUs bg-gray-200 py-2">
+      <div className="contactUs contact bg-gray-200 py-2">
         <div className="contactHeading flex flex-col items-center justify-center py-2">
           <h1 className='text-center text-3xl font-normal text-gray-800'>Contact Us</h1>
           <div className="para text-lg text-gray-800 font-normal text-center" style={{ fontFamily: "'Patrick Hand', cursive;" }}>We will glad to meet you</div>
