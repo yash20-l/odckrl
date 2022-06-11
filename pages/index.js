@@ -313,6 +313,13 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="footer bg-gray-800 py-4 px-2">
+        <div className="footerText">
+          <h1 className='text-white text-base font-normal capitalize'>© Copyright 2022-2023 @ on dot courier and cargo services kurali</h1>
+          <h1 className='text-white text-base font-normal capitalize'>Developed and managed by yash verma</h1>
+        </div>
+      </div>
+
     </>
   )
 }
